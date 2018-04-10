@@ -1,4 +1,5 @@
 pipeline {
+<<<<<<< HEAD
     agent none 
     stages {
         stage('Build') { 
@@ -25,6 +26,20 @@ pipeline {
                     junit 'test-reports/results.xml'
                 }
             }
+=======
+  agent none
+  stages {
+    stage('Build') {
+      agent {
+        docker {
+          image 'python:2-alpine'
+>>>>>>> c2df89b7abf2913c80dee76466375149ff55a98c
         }
+
+      }
+      steps {
+        sh 'python -m py_compile sources/add2vals.py sources/calc.py'
+      }
     }
+  }
 }
